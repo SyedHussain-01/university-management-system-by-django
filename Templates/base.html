@@ -1,0 +1,471 @@
+<!doctype html>
+<html lang="en" dir="ltr">
+
+<head>
+  <title>Home</title>
+  <meta charset="utf-8">
+  <!-- Compiled and minified JavaScript -->
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      $('select').formSelect();
+    });
+  </script>
+  <!-- Compiled and minified CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+  <!--Import Google Icon Font-->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  {% load static %}
+
+  <style>
+    .header {
+      background-image: linear-gradient(135deg, #97ABFF 10%, #123597 100%);
+    }
+
+    .login-form {
+
+      margin-top: 250px;
+      margin-bottom: 250px;
+      background-color: #4169E1;
+      padding: 40px;
+      border-radius: 12px;
+      border-style: solid;
+      border-width: thick;
+      border-color: mediumslateblue;
+
+    }
+
+    .login-form-register {
+
+      margin-top: 50px;
+      margin-bottom: 100px;
+      background-color: #4169E1;
+      padding: 40px;
+      padding-top: 6px;
+      border-radius: 12px;
+      border-style: solid;
+      border-width: thick;
+      border-color: mediumslateblue;
+
+    }
+
+    .form-control {
+      color: white;
+
+    }
+
+    .form-control::placeholder {
+      color: white;
+      font-size: smaller;
+
+    }
+
+    .labelfont {
+      font-weight: bold;
+      font-style: italic;
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 15px;
+    }
+
+
+
+    .loginbtn {
+      border-left: solid 1px #2E4476;
+      background: #3B5999;
+
+      -webkit-transition: all 0s ease-out;
+      -moz-transition: all 0s ease-out;
+      -o-transition: all 0s ease-out;
+      -ms-transition: all 0s ease-out;
+      transition: all 0s ease-out;
+      height: 35px;
+      display: block;
+      font-family: Arial, "Helvetica", sans-serif;
+      font-size: 14px;
+      color: #fff;
+      text-decoration: none;
+      text-align: center;
+      text-shadow: 0px -1px 0px rgba(0, 0, 0, 0.4);
+      padding: 4px 20px 0;
+      cursor: pointer;
+      border: none;
+      border-top-right-radius: 5px;
+      border-bottom-right-radius: 5px;
+    }
+
+    .page {
+      background-image: linear-gradient(135deg, #3B2667 100%, #BC78EC 100%);
+      height: 100%;
+    }
+    
+    .footer{
+      background-color: #393566;
+      margin-top: 100px;
+    }
+
+    .footer-copyright{
+      /* background-image: linear-gradient(135deg, #3B2667 100%, #BC78EC 100%); */
+      background-image: linear-gradient(135deg, #97ABFF -100%,  #443c88 100%);
+    }
+
+    label {
+      color: white;
+    }
+
+    .register-head {
+      width: 100%;
+      display: flex;
+      justify-content: center;
+      border-bottom-style: solid;
+      border-bottom-color: mediumslateblue;
+
+    }
+
+    .banner-image {
+      background-image: url("{% static 'images/bannerimage.jpg' %}");
+      min-height: 97%;
+      width: 100%;
+      z-index: 1;
+      background-repeat: no-repeat;
+      background-size: cover;
+      background-position: center;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      
+
+    }
+
+    html, body {
+            height: 100%;
+            margin: 0;
+      
+          
+        }
+
+    .banner-btn {
+
+      width: 170px;
+      height: 60px;
+      margin-bottom: 70px;
+      font-size: 20px;
+      font-style: oblique;
+
+
+    }
+
+
+    .btn-grad {
+      background-image: linear-gradient(to right, #4776E6 0%, #8E54E9 51%, #4776E6 100%)
+    }
+
+    .btn-grad {
+
+      padding: 15px 45px;
+      text-align: center;
+      text-transform: uppercase;
+      transition: 0.5s;
+      background-size: 200% auto;
+      color: white;
+      box-shadow: 0 0 20px black;
+      border-radius: 10px;
+      display: block;
+    }
+
+    .btn-grad:hover {
+      background-position: right center;
+      /* change the direction of the change here */
+      color: #fff;
+      text-decoration: none;
+    }
+
+    .heading-home {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      color: white;
+      text-align: center;
+    }
+
+    .createlesson{
+      display: flex;
+      justify-content: center;
+      padding: 20px;
+      margin-top: 50px;
+    }
+
+    
+    
+  </style>
+</head>
+
+<body class="pb-5 page">
+
+  <nav class="header px-4">
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Logo</a>
+      <ul id="nav-mobile" class="right hide-on-med-and-down">
+        <li><a href="{% url 'index' %}">Home</a></li>
+        <li><a href="{% url 'curricullum:standard_list' %}">Curriculum</a></li>
+        <li><a href="{% url 'register' %}">Register</a></li>
+        {% if user.is_authenticated %}
+        <li><a href="{% url 'user_logout' %}">Logout</a></li>
+        {% else %}
+        <li><a href="{% url 'user_login' %}">Login</a></li>
+        {% endif %}
+        {% if request.user.is_superuser %}
+        <li><a href="{% url 'admin:index' %}">Admin</a></li>
+        {% endif %}
+        
+      </ul>
+    </div>
+  </nav>
+
+  {% block content %}
+  <div class="banner-image ">
+    <a href="{% url 'curricullum:standard_list' %}" class="banner-btn btn-grad">Start</a>
+  </div>
+  <!-- <div class="container">
+    <div class="heading-home py-3">
+      <h3>DIVE INTO LEARNING</h3>
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Architecto sit dicta illum quas sint quia
+        necessitatibus optio distinctio, reiciendis asperiores ex aspernatur accusamus maiores dolorem ipsa numquam
+        fugit modi ducimus.</p>
+    </div>
+
+    <div class="row pt-5">
+      
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">1st Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">1st Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action text-dark">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+
+        </div>
+
+      </div>
+      
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">2nd Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">2nd Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">3rd Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">3rd Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">4th Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">4th Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">5th Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">5th Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">6th Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">6th Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">7th Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">7th Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+      <div class="col-sm-4">
+
+        <div class="card">
+          <div class="card-image waves-effect waves-block waves-light">
+            <img class="activator" src="{% static 'images/bannerimage.jpg' %}" height="300px">
+          </div>
+          <div class="card-content">
+            <span class="card-title activator grey-text text-darken-4">8th Semester<i
+                class="material-icons right">more_vert</i></span>
+            
+          </div>
+          <div class="card-reveal">
+            <span class="card-title grey-text text-darken-4">8th Semester<i class="material-icons right">close</i></span>
+            <p>Here is some more information about this product that is only revealed once clicked on.</p>
+          </div>
+          <div class="card-action">
+            {% if user.is_authenticated %}
+            <a href="#" class="text-dark">Open</a>
+            {% else %}
+            <a href="{% url 'user_login' %}" class="text-dark">Login</a>
+            <a href="{% url 'register' %}" class="text-dark">Register</a>
+            {% endif %}
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+
+
+
+  </div> -->
+
+  {% endblock %}
+
+
+</body>
+</body>
+
+</html>
